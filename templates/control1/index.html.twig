@@ -15,35 +15,31 @@
                 $file = this.files[0];
                 console.log($file);
         });
-    
-        
-        
-      
 
          $("#form_save").on("click", function(event){ 
             let $name = $('#form_Name').val();
             let $sname = $('#form_Sname').val(); 
+          
+           
+           
             $formdata = new FormData();   
-            $formdata.append("image", $file);
+            $formdata.append("file", $file);
+            $formdata.append("name", $name);
+            $formdata.append("sname", $sname);
 
-
+          
             console.log($file.name);
 
-            console.log('clik');
+           
             $.ajax({  
                url:        '/add',  
                type:       'POST',   
-               dataType:   'json',  
-               async:      true,  
-               data : $formdata,
-               data:{
-                    name: $name,
-                    sname : $sname,
-                    
-                    
-               },
                
-               
+               //async:      true,  
+               data:  $formdata,
+               processData: false,
+               contentType: false,
+               //cache: false,
                
                success: function(data, status) {  
                  alert('dodano');
@@ -62,45 +58,6 @@
 
 {{ form_start(form) }}
 {{ form_end(form) }}
-
-
-
-
-
-
-{# {% block script %}
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-
-<script>
-console.log("js - dziala");
-const $sub = $('div button');
-let $login = $('#form_Name').val();
-let $pass = $('#form_Sname').val();
-console.log($sub);
-$sub.on('click', function() {
-  console.log("elo");
-  
-  $.ajax({
-    type: "post",
-    url: "/",
-    dataType : 'json',
-    data: {
-    login: $login,
-    pass : $pass
-    }
-    }).done(function(data) {
-    console.warn('GIT');
-    })
-    .fail(function() {
-    console.warn('wystąpił błąd');
-    })
-  
-});
-
-</script> 
-
-{% endblock %} #}
 
 {% endblock %}
 

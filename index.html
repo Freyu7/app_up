@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>TODO</title>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="todo-cnt">
+            <form class="todo-form" id="todoForm">
+                    <div class="todo-form-row">
+                        <label class="todo-form-label" for="todoMessage">Podaj treść zadania</label>
+                        <textarea class="todo-form-message" name="todoMessage" id="todoMessage"></textarea>
+                    </div>
+                    <div class="todo-form-row">
+                        <button type="submit" class="button todo-form-button">Dodaj</button>
+                    </div>
+                </form>
+
+                    <section class="todo-list-cnt">
+                        <header class="todo-list-header">
+                            <h2 class="todo-list-title">
+                                Lista zadań
+                            </h2>
+                            <form class="todo-list-search-form">
+                                <input type="search" id="todoSearch" class="todo-list-search">
+                            </form>
+                        </header>
+                    
+                        <div class="todo-list" id="todoList">
+                            <!-- tutaj trafią zadania -->
+                        </div>
+                    </section>
+
+                    <div class="todo-element">
+                        <div class="todo-element-bar">
+                            <h3 class="todo-element-date">20-10-2016 godz. 16:32</h3>
+                            <button class="todo-element-delete" title="Usuń task">
+                                <i class="fas fa-times-circle"></i>
+                            </button>
+                        </div>
+                        <div class="todo-element-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio laudantium quasi blanditiis enim molestias explicabo id totam veniam corporis maiores.
+                        </div>
+                    </div>
+
+        </div>
+
+        <script src="js/script.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+    </body>
+</html>

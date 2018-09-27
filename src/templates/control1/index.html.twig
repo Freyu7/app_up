@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zadanie{% endblock %}
+
+{% block body %}
+
+
+{{ form_start(form) }}
+{{ form_end(form) }}
+
+{{ name }}
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<!-- <script>
+const $sub = $('div button');
+
+console.log($sub);
+$sub.on('click', function() {
+  console.log("elo");
+  this.preventDefault();
+  
+});
+
+</script> -->
+
+{% endblock %}
+
+{% endblock %}
+
+

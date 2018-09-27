@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zadanie{% endblock %}
+
+{% block javascripts %} 
+   <script language = "javascript" 
+      src = "https://code.jquery.com/jquery-2.2.4.min.js"></script> 
+   
+   <script language = "javascript">  
+      $(document).ready(function(){
+    
+          var $file;
+           
+        $("#form_file").on("change", function() {
+                $file = this.files[0];
+                console.log($file);
+        });
+    
+        
+        
+      
+
+         $("#form_save").on("click", function(event){ 
+            let $name = $('#form_Name').val();
+            let $sname = $('#form_Sname').val(); 
+            $formdata = new FormData();   
+            $formdata.append("image", $file);
+
+
+            console.log($file.name);
+
+            console.log('clik');
+            $.ajax({  
+               url:        '/add',  
+               type:       'POST',   
+               dataType:   'json',  
+               async:      true,  
+               data : $formdata,
+               data:{
+                    name: $name,
+                    sname : $sname,
+                    
+                    
+               },
+               
+               
+               
+               success: function(data, status) {  
+                 alert('dodano');
+               },  
+               error : function(xhr, textStatus, errorThrown) {  
+                  alert('Ajax request failed.');  
+               }  
+            });  
+         });  
+      });  
+   </script> 
+{% endblock %}  
+
+{% block body %}
+
+
+{{ form_start(form) }}
+{{ form_end(form) }}
+
+
+
+
+
+
+{# {% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<script>
+console.log("js - dziala");
+const $sub = $('div button');
+let $login = $('#form_Name').val();
+let $pass = $('#form_Sname').val();
+console.log($sub);
+$sub.on('click', function() {
+  console.log("elo");
+  
+  $.ajax({
+    type: "post",
+    url: "/",
+    dataType : 'json',
+    data: {
+    login: $login,
+    pass : $pass
+    }
+    }).done(function(data) {
+    console.warn('GIT');
+    })
+    .fail(function() {
+    console.warn('wystąpił błąd');
+    })
+  
+});
+
+</script> 
+
+{% endblock %} #}
+
+{% endblock %}
+
+

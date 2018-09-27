@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zadanie{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <h1>Podaj dane:</h1>
+
+    <input type="text" id="login" value ="test"/> </br>
+    <input type="text" id="password" /> </br> 
+    <button id="submit"> zaloguj</button> 
+
+    <div id="info"></div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+      
+	const $sub = $('#submit');
+	
+	$sub.on('click', function() {
+		let $login = $('#login').val();
+		let $pass = $('#password').val();
+		console.log($login);
+		
+		$.ajax({
+            type: "post",
+            url: "send.php",
+            dataType : 'json',
+            data: {
+				login: $login,
+                pass : $pass
+            }
+        })
+		
+		
+		
+		
+	});
+	
+    function loging() {
+        $.get('log.php', {
+            name: $('#login').val()
+        }).done(function(data) {
+            $('div#info').html(data);
+        })
+    }
+</script>
+
+{% endblock  %}
